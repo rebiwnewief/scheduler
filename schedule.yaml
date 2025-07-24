@@ -1,0 +1,27 @@
+solver: 'pulp'
+tasks:
+  - id: task1
+    duration: 5
+    deadline: 10
+    penalty: 2
+    reward: 1
+  - id: task2
+    duration: 3
+    deadline: 8
+    penalty: 1
+    reward: 2
+  - id: task3
+    duration: 4
+    deadline: 12
+    penalty: 0
+    reward: 3
+
+constraints:
+  - type: precedence
+    before: task1
+    after: task2
+  - type: precedence
+    before: task1
+    after: task3
+
+objective: "maximize sum(reward) - sum(penalties)"
