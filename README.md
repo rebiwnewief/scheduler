@@ -15,9 +15,10 @@ pip install -r requirements.txt
 * test_115.csv - оптимум 115
 * test_142.csv - оптимум 142
 * test_154.csv - оптимум 154
+* test.csv - оптимум 64
 
 ```bash
-python main_BnB.py
+python main.py
 ```
 
 Также есть генератор тестовых сценариев generate_scenario.py 

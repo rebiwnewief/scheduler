@@ -1,4 +1,4 @@
-from itertools import chain, combinations
+from itertools import chain, combinations, permutations
 
 import numpy as np
 import pandas as pd
@@ -52,12 +52,13 @@ def find_optimal(tasks):
     best_solution = None
     # получим подмножество задач
     for ans in powerset(tasks[:, 0]):
-        print(ans)
-        # проверим, что сгенерированное решение улучшит рекорд
-        current_record = calculate_reward(tasks, ans)
-        if current_record > record:
-            record = current_record
-            best_solution = ans
+        for perm in permutations(ans):
+            print(perm)
+            # проверим, что сгенерированное решение улучшит рекорд
+            current_record = calculate_reward(tasks, perm)
+            if current_record > record:
+                record = current_record
+                best_solution = perm
 
     return best_solution, record
 
